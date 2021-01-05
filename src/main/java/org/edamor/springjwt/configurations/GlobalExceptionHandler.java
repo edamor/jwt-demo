@@ -19,8 +19,10 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(UserPrincipalNotFoundException.class)
-    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ResponseStatus(HttpStatus.PARTIAL_CONTENT)
     public ResponseEntity<String> handleUserNotFound(RuntimeException ex) {
-        return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.PARTIAL_CONTENT);
     }
+
+
 }
